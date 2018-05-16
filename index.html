@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery</title>
+	<style>
+		.btn{
+			padding: 20px;
+		}
+		.block{
+			width: 200px;
+			height: 200px;
+			background-color: #ccc;
+		}
+		.redbtn{
+			padding: 15px;
+			background-color: red;
+			color: #fff;
+		}
+		.redblock{
+			width: 100px;
+			height: 50px;
+			background-color: red;
+			margin: 10px;
+		}
+		.bluebtn{
+			padding: 15px;
+			color: #fff;
+			background-color: blue;
+		}
+		.blueblock{
+			margin: 10px;
+			width: 100px;
+			height: 50px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+
+<button class="btn" data-panelid="#panel1">Click1</button>
+<div class="block" id="panel1">1</div>
+<button class="btn" data-panelid="#panel2">Click2</button>
+<div class="block" id="panel2">2</div>
+<button class="redbtn">Red</button>
+<button class="bluebtn">Blue</button>
+<div class="redblock"></div>
+<div class="blueblock"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.btn').on('click', function(){
+			var pan = $(this).attr('data-panelid');
+			alert(pan);
+			// $(pan).toggle();
+		});
+		$('.redbtn').on('click', function(){
+			$('.bluebtn, .redblock, .blueblock').toggle();
+		});
+		$('.bluebtn').on('click', function(){
+			$('.redbtn, .redblock, .blueblock').css({visibility: 'hidden'});
+		});
+	});
+</script>
+
+</body>
+</html>
